@@ -10,13 +10,15 @@ import './App.css';
 
 function App({pokemons, setPokemons}) {
   console.log(pokemons)
+
+  // const [pokemons, setPokemons] = useState([]);
   useEffect(() => {
     const fetchPokemons = async () => {
       const pokemonsRes = await getPokemon();
       setPokemons(pokemonsRes);
     };
     fetchPokemons();
-  }, [])
+  }, []);
   return (
     <div className="App">
       <Col span={4} offset={10}>
@@ -38,4 +40,5 @@ const mapDispatchToProps = (dispatch) => ({
   setPokemons: (value) => dispatch(setPokemonsAction(value))
 });
 
+// export default App;
 export default connect(mapStateToProps, mapDispatchToProps)(App);
