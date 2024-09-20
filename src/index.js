@@ -9,7 +9,7 @@ import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const store = createStore(pokeonsReducer);
+const store = createStore(pokeonsReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 root.render(
   <React.StrictMode>
     <Provider store={store}>
