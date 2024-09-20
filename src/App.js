@@ -12,7 +12,7 @@ function App() {
 
   const pokemons = useSelector((state) => state.pokemons);
   const dispatch = useDispatch();
-  console.log(pokemons)
+  // console.log(pokemons)
 
   // const [pokemons, setPokemons] = useState([]);
   useEffect(() => {
