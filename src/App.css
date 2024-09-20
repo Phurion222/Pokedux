@@ -1,0 +1,16 @@
+.App {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.App img {
+  margin-bottom: 3rem;
+}
+
+.PokemonList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+  padding: 0 3rem 0 3rem;
+}
