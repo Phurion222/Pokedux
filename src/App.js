@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Col } from 'antd'
+import { Col, Spin } from 'antd'
 import Searcher from './components/Searcher';
 import PokemonList from './components/PokemonList';
 import Logo from './statics/logo.svg'
@@ -29,6 +29,9 @@ function App() {
       </Col>
       <Col span={8} offset={8}>
         <Searcher />
+      </Col>
+      <Col offset={12}>
+        <Spin spinning size='large'/>
       </Col>
       <PokemonList pokemons={pokemons}/>
     </div>
