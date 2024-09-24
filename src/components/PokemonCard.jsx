@@ -1,11 +1,20 @@
 import { Card } from 'antd';
-import { StarOutlined } from '@ant-design/icons';
 import Meta from 'antd/lib/card/Meta';
+import StarButton from './StarButton';
+import { setFavorite } from '../actions';
+import { useDispatch } from 'react-redux';
 
-const PokemonCard = ({name, image}) => {
+const PokemonCard = ({id, name, image, types, favorite}) => {
+
+    const dispatch = useDispatch();
+
+    const handleOnFavorite = () => {
+        dispatch(setFavorite({pokemonId: id}));
+    };
+
     return (
-        <Card title={name} cover={<img src={image} alt={name} />} extra={<StarOutlined />}>
-            <Meta description="fire, magic"/>
+        <Card title={name} cover={<img src={image} alt={name} />} extra={<StarButton isFavorite={favorite} onClick={() => handleOnFavorite()}/>}>
+            <Meta description={types.map(t => (t.type.name)).join(', ')}/>
         </Card>
     )
 }
