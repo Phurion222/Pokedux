@@ -6,12 +6,12 @@ import Logo from './statics/logo.svg'
 import { getPokemon } from './api';
 import { getPokemonsWithDetails, setLoading } from './actions';
 import './App.css';
-import { useDispatch, useSelector } from 'react-redux';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 
 function App() {
 
-  const pokemons = useSelector((state) => state.pokemons);
-  const loading = useSelector((state) => state.loading);
+  const pokemons = useSelector((state) => state.getIn(['data', 'pokemons']), shallowEqual).toJS();
+  const loading = useSelector((state) => state.getIn(['ui', 'loading']));
   const dispatch = useDispatch();
   // console.log(pokemons)
 
